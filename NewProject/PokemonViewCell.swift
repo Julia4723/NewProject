@@ -31,7 +31,6 @@ final class PokemonViewCell: UITableViewCell {
                     switch result {
                     case .success(let imageData):
                         self?.pokemonImageView.image = UIImage(data: imageData)
-                        
                     case .failure(let error):
                         print(error)
                     }
