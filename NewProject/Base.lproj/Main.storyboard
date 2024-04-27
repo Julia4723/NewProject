@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="1993.1297709923663" y="3.5211267605633805"/>
         </scene>
-        <!--Home-->
+        <!--Characters Table View Controller-->
         <scene sceneID="OCN-1K-yfw">
             <objects>
                 <tableViewController id="qtu-Zy-Yfo" customClass="CharactersTableViewController" customModule="NewProject" sceneMemberID="viewController">
@@ -97,11 +97,11 @@
                             <outlet property="delegate" destination="qtu-Zy-Yfo" id="usD-XD-KMg"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="b6Y-16-uwA"/>
+                    <navigationItem key="navigationItem" id="uFG-77-QS9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OA1-zB-dkC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976.3358778625955" y="747.88732394366195"/>
+            <point key="canvasLocation" x="2903.0534351145038" y="747.88732394366195"/>
         </scene>
         <!--Character Details View Controller-->
         <scene sceneID="tBW-sA-eCy">
@@ -110,14 +110,32 @@
                     <view key="view" contentMode="scaleToFill" id="GKY-AE-6KM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lni-Q6-a6Q">
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="4ce-bw-gps"/>
+                                    <constraint firstAttribute="height" constant="300" id="sj3-b3-rTm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dbV-ZZ-5VE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Lni-Q6-a6Q" firstAttribute="centerX" secondItem="GKY-AE-6KM" secondAttribute="centerX" id="ADw-Yc-yPE"/>
+                            <constraint firstItem="Lni-Q6-a6Q" firstAttribute="centerY" secondItem="GKY-AE-6KM" secondAttribute="centerY" id="O2X-Sf-LIj"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pum-RB-KfO"/>
+                    <navigationItem key="navigationItem" id="pum-RB-KfO">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ujH-UC-VqE"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="characterImageView" destination="Lni-Q6-a6Q" id="Ot8-X0-3Ti"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Z6-jA-qhX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2868" y="748"/>
+            <point key="canvasLocation" x="3794.6564885496182" y="747.88732394366195"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gBd-lW-Q81">
@@ -149,13 +167,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="qtu-Zy-Yfo" kind="relationship" relationship="viewControllers" id="ZPH-bG-Uw5"/>
+                        <segue destination="U4d-km-qfb" kind="relationship" relationship="viewControllers" id="ZPH-bG-Uw5"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="nc9-pF-toh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1H-D3-0kH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1066.4122137404579" y="3.5211267605633805"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="u6A-HT-yLJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U4d-km-qfb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="b6Y-16-uwA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="rbh-wd-4sT">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qtu-Zy-Yfo" kind="relationship" relationship="rootViewController" id="hO4-S9-LzH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tbz-MD-SSi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976.3358778625955" y="747.88732394366195"/>
         </scene>
     </scenes>
     <resources>
