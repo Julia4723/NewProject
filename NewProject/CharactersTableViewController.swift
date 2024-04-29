@@ -28,15 +28,14 @@ final class CharactersTableViewController: UITableViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 100
-        
         tableView.backgroundColor = .systemBackground
+        tableView.register(PokemonViewCell.self, forCellReuseIdentifier: "CellUI")
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
         
         setupNavigationBar()
         fetchPokemons()
@@ -98,7 +97,7 @@ extension CharactersTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellUI", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellUI", for: indexPath)
         guard let cell = cell as? PokemonViewCell else { return UITableViewCell()}
         
         let pokemon: Pokemon
@@ -109,6 +108,7 @@ extension CharactersTableViewController {
         }
         
         cell.configure(with: pokemon)
+        
         return cell
         
     }

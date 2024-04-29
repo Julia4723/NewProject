@@ -24,15 +24,14 @@ final class TabBarViewController: UITabBarController {
     // Для передачи данных между таббаами
     private func setupViewControllers() {
         
-        guard let charactersTableVC = viewControllers?.first as? UINavigationController else { return }
-        guard let settingsVC = viewControllers?.last as? SettingsViewController else { return }
-        
+        let charactersTableVC = CharactersTableViewController()
+        let settingsVC = SettingsViewController()
         
         charactersTableVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), selectedImage: nil)
         settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), selectedImage: nil)
         
         viewControllers = [charactersTableVC, settingsVC]
-        //self.navigationItem.title = "Home"
+        self.navigationItem.title = "Home"
          
          
     }

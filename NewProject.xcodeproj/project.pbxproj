@@ -73,10 +73,10 @@
 				CE8CD70B2BD459100059E027 /* SceneDelegate.swift */,
 				CE8CD7142BD459110059E027 /* LaunchScreen.storyboard */,
 				CE8CD70F2BD459100059E027 /* Main.storyboard */,
+				CE8CD71D2BD459E70059E027 /* TabBarController.swift */,
 				CE8CD71F2BD45A230059E027 /* CharactersTableViewController.swift */,
 				CE8CD7212BD45A3C0059E027 /* CharacterDetailsViewController.swift */,
 				CE8CD7232BD45A550059E027 /* SettingsViewController.swift */,
-				CE8CD71D2BD459E70059E027 /* TabBarController.swift */,
 				CE8CD7252BD45A6E0059E027 /* PokemonViewCell.swift */,
 				CE8CD7292BD45AA80059E027 /* Model.swift */,
 				CE8CD7272BD45A8B0059E027 /* NetworkManager.swift */,
@@ -321,9 +321,10 @@
 				INFOPLIST_FILE = NewProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,9 +354,10 @@
 				INFOPLIST_FILE = NewProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
