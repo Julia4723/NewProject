@@ -29,6 +29,7 @@ final class CharactersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .systemBackground
+        tableView.rowHeight = 100
         tableView.register(PokemonViewCell.self, forCellReuseIdentifier: "CellUI")
         
         searchController.searchResultsUpdater = self
@@ -49,7 +50,6 @@ final class CharactersTableViewController: UITableViewController {
     
     //MARK: - Navigation
     // Здесь будем подготавливать данные для передачи на экран с детальной инфой
-   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             return
@@ -114,7 +114,20 @@ extension CharactersTableViewController {
     }
 }
 
-
+extension CharactersTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            return
+        }
+        let pokemon = isFiltering
+        ? filteredPokemon[indexPath.row]
+        : pokemonsAll[indexPath.row]
+        let detailVC = CharacterDetailsViewController()
+        detailVC.pokemon = pokemon
+        show(detailVC, sender: self)
+    }
+}
 
 
 // MARK: - UISearchResultsUpdating

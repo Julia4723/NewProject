@@ -8,13 +8,6 @@
 import UIKit
 
 final class CharacterDetailsViewController: UIViewController {
-    //MARK: - IBOutlets
-    @IBOutlet var characterImageView: UIImageView! {
-        didSet {
-            characterImageView.layer.cornerRadius = characterImageView.frame.width / 2
-        }
-    }
-    
     //MARK: - Public Properties
     var pokemon: Pokemon!
     
@@ -25,15 +18,33 @@ final class CharacterDetailsViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
             
-        title = pokemon.name
+        title = pokemon.name.capitalized
         
-        showSpinner(in: characterImageView)
+        view.addSubview(pokemonImage)
+        doConstrains()
+        
+        showSpinner(in: pokemonImage)
         fetchImage()
-        
     }
     
+    let pokemonImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     //MARK: - Private Methods
+    func doConstrains() {
+        NSLayoutConstraint.activate([
+            pokemonImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pokemonImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            pokemonImage.widthAnchor.constraint(equalToConstant: 300),
+            pokemonImage.heightAnchor.constraint(equalToConstant: 300)
+        ])
+    }
+    
     private func showSpinner(in view: UIView) {
         spinnerView = UIActivityIndicatorView(style: .large)
         spinnerView.color = .white
@@ -48,7 +59,7 @@ final class CharacterDetailsViewController: UIViewController {
             NetworkManager.shared.fetchImage(from: character.sprites.other.home.frontDefault) { result in
                 switch result {
                 case .success(let imageData):
-                    self.characterImageView.image = UIImage(data: imageData)
+                    self.pokemonImage.image = UIImage(data: imageData)
                     self.spinnerView.stopAnimating()
                 case .failure(let error):
                     print(error)
