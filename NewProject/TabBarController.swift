@@ -20,7 +20,7 @@ final class TabBarViewController: UITabBarController {
         
     }
     
-
+    
     // Для передачи данных между таббаами
     private func setupViewControllers() {
         
@@ -32,8 +32,6 @@ final class TabBarViewController: UITabBarController {
         settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), selectedImage: nil)
         
         viewControllers = [charactersTableVC, settingsVC]
-        //self.navigationItem.title = "Home"
-         
-         
+        
     }
 }

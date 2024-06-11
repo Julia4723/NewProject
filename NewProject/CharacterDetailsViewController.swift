@@ -6,50 +6,64 @@
 //
 
 import UIKit
+import Alamofire
+import Kingfisher
 
 final class CharacterDetailsViewController: UIViewController {
-    //MARK: - IBOutlets
-    @IBOutlet var characterImageView: UIImageView! {
-        didSet {
-            characterImageView.layer.cornerRadius = characterImageView.frame.width / 2
-        }
-    }
     
+    var pokemon = Pokemon(name: "", url: "")
+    
+    //MARK: - IBOutlets
+    @IBOutlet var characterImageView: UIImageView!
+    @IBOutlet var label: UILabel!
+
+   
     //MARK: - Public Properties
-    var pokemon: Pokemon!
+    //var pokemon: Pokemon!
     
     //MARK: - Private Properties
     private let networkManager = NetworkManager.shared
-    private var spinnerView = UIActivityIndicatorView()
+    private let storageManager = StorageManager.shared
+    
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-            
         title = pokemon.name
-        
-        showSpinner(in: characterImageView)
+
+        updateUI()
         fetchImage()
         
     }
     
-    //MARK: - Private Methods
-    private func showSpinner(in view: UIView) {
-        spinnerView = UIActivityIndicatorView(style: .large)
-        spinnerView.color = .white
-        spinnerView.startAnimating()
-        spinnerView.center = view.center
-        spinnerView.hidesWhenStopped = true
-        view.addSubview(spinnerView)
-    }
+    override func viewDidLayoutSubviews() {
+           super.viewDidLayoutSubviews()
+           characterImageView.layer.cornerRadius = characterImageView.frame.width / 2
+       }
+       
     
+    //MARK: - Private Methods
+    
+//    private func fetchImage() {
+//        NetworkManager.shared.fetch(dataType: Character.self, url: pokemon.url) { character in
+//            let imageURL = URL(string: character.sprites.other.home.frontDefault)
+//            self.characterImageView.kf.setImage(with: imageURL)
+//            
+//        }
+//    }
+//    
+    
+    private func updateUI() {
+        label.text = pokemon.name
+        
+    }
+ 
     private func fetchImage() {
         NetworkManager.shared.fetch(dataType: Character.self, url: pokemon.url) { character in
             NetworkManager.shared.fetchImage(from: character.sprites.other.home.frontDefault) { result in
                 switch result {
                 case .success(let imageData):
                     self.characterImageView.image = UIImage(data: imageData)
-                    self.spinnerView.stopAnimating()
                 case .failure(let error):
                     print(error)
                 }
@@ -57,4 +71,5 @@ final class CharacterDetailsViewController: UIViewController {
             }
         }
     }
+    
 }

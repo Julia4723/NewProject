@@ -19,6 +19,11 @@
 		CE8CD7262BD45A6E0059E027 /* PokemonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD7252BD45A6E0059E027 /* PokemonViewCell.swift */; };
 		CE8CD7282BD45A8B0059E027 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD7272BD45A8B0059E027 /* NetworkManager.swift */; };
 		CE8CD72A2BD45AA80059E027 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CD7292BD45AA80059E027 /* Model.swift */; };
+		CECD587B2BDE2860001DC86A /* NewPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECD587A2BDE2860001DC86A /* NewPokemonViewController.swift */; };
+		CECD587D2BDE36D9001DC86A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECD587C2BDE36D9001DC86A /* StorageManager.swift */; };
+		CECD58822BDED2C8001DC86A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CECD58812BDED2C8001DC86A /* Alamofire */; };
+		CECD58842BDED2C8001DC86A /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CECD58832BDED2C8001DC86A /* AlamofireDynamic */; };
+		CECD58872BDFA4FA001DC86A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CECD58862BDFA4FA001DC86A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,8 @@
 		CE8CD7252BD45A6E0059E027 /* PokemonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewCell.swift; sourceTree = "<group>"; };
 		CE8CD7272BD45A8B0059E027 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CE8CD7292BD45AA80059E027 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CECD587A2BDE2860001DC86A /* NewPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPokemonViewController.swift; sourceTree = "<group>"; };
+		CECD587C2BDE36D9001DC86A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECD58872BDFA4FA001DC86A /* Kingfisher in Frameworks */,
+				CECD58822BDED2C8001DC86A /* Alamofire in Frameworks */,
+				CECD58842BDED2C8001DC86A /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +84,8 @@
 				CE8CD7142BD459110059E027 /* LaunchScreen.storyboard */,
 				CE8CD70F2BD459100059E027 /* Main.storyboard */,
 				CE8CD71F2BD45A230059E027 /* CharactersTableViewController.swift */,
+				CECD587C2BDE36D9001DC86A /* StorageManager.swift */,
+				CECD587A2BDE2860001DC86A /* NewPokemonViewController.swift */,
 				CE8CD7212BD45A3C0059E027 /* CharacterDetailsViewController.swift */,
 				CE8CD7232BD45A550059E027 /* SettingsViewController.swift */,
 				CE8CD71D2BD459E70059E027 /* TabBarController.swift */,
@@ -101,6 +113,11 @@
 			dependencies = (
 			);
 			name = NewProject;
+			packageProductDependencies = (
+				CECD58812BDED2C8001DC86A /* Alamofire */,
+				CECD58832BDED2C8001DC86A /* AlamofireDynamic */,
+				CECD58862BDFA4FA001DC86A /* Kingfisher */,
+			);
 			productName = NewProject;
 			productReference = CE8CD7062BD459100059E027 /* NewProject.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +146,10 @@
 				Base,
 			);
 			mainGroup = CE8CD6FD2BD459100059E027;
+			packageReferences = (
+				CECD58802BDED2C8001DC86A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CECD58852BDFA4FA001DC86A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = CE8CD7072BD459100059E027 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -158,11 +179,13 @@
 			files = (
 				CE8CD72A2BD45AA80059E027 /* Model.swift in Sources */,
 				CE8CD71E2BD459E70059E027 /* TabBarController.swift in Sources */,
+				CECD587D2BDE36D9001DC86A /* StorageManager.swift in Sources */,
 				CE8CD7202BD45A230059E027 /* CharactersTableViewController.swift in Sources */,
 				CE8CD7222BD45A3C0059E027 /* CharacterDetailsViewController.swift in Sources */,
 				CE8CD7262BD45A6E0059E027 /* PokemonViewCell.swift in Sources */,
 				CE8CD7282BD45A8B0059E027 /* NetworkManager.swift in Sources */,
 				CE8CD70A2BD459100059E027 /* AppDelegate.swift in Sources */,
+				CECD587B2BDE2860001DC86A /* NewPokemonViewController.swift in Sources */,
 				CE8CD70C2BD459100059E027 /* SceneDelegate.swift in Sources */,
 				CE8CD7242BD45A550059E027 /* SettingsViewController.swift in Sources */,
 			);
@@ -395,6 +418,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CECD58802BDED2C8001DC86A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		CECD58852BDFA4FA001DC86A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CECD58812BDED2C8001DC86A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CECD58802BDED2C8001DC86A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		CECD58832BDED2C8001DC86A /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CECD58802BDED2C8001DC86A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+		CECD58862BDFA4FA001DC86A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CECD58852BDFA4FA001DC86A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE8CD6FE2BD459100059E027 /* Project object */;
 }

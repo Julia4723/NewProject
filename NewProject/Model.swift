@@ -7,14 +7,17 @@
 
 import Foundation
 
-struct PokemonApp: Decodable {
+
+
+struct PokemonApp: Codable {
     let results: [Pokemon]
 }
 
 
-struct Pokemon: Decodable {
+struct Pokemon: Codable {
     let name: String
     let url: String
+
     
     var description: String {
         """
@@ -24,17 +27,17 @@ Name: \(name)
 }
 
 
-struct Character: Decodable {
+struct Character: Codable {
     let sprites: Sprites
 }
 
 
-struct Sprites: Decodable {
+struct Sprites: Codable {
     let other: Home
 }
 
 
-struct Home: Decodable {
+struct Home: Codable {
     let home: Front
 }
 
@@ -46,6 +49,7 @@ struct Front: Codable {
     }
     
 }
+
 
 
 

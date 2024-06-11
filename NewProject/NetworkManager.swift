@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Alamofire
+import Kingfisher
 
 enum NetworkError: Error {
     case invalidURL
@@ -16,6 +18,20 @@ enum NetworkError: Error {
 enum PokemonAPI: String {
     case url = "https://pokeapi.co/api/v2/pokemon"
         }
+
+
+enum Link {
+    
+    case postRequest
+    
+    var url: URL {
+        switch self{
+        case .postRequest:
+            return URL (string: "https://jsonplaceholder.typicode.com/posts")!
+        }
+    }
+}
+
 
 
 final class NetworkManager {
@@ -57,6 +73,21 @@ final class NetworkManager {
             }
         }
     }
+    
+    
+    func postNewPokemon(to url: URL, with parameters: Pokemon, completion: @escaping (Result<Pokemon, AFError>) -> Void) {
+        AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder(encoder: JSONEncoder()))
+            .validate()
+            .responseDecodable(of: Pokemon.self) { dataResponse in
+                switch dataResponse.result {
+                case .success(let course):
+                    completion(.success(course))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+    
     
     private init() {}
     

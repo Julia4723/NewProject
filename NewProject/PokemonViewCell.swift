@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class PokemonViewCell: UITableViewCell {
     
@@ -14,30 +15,39 @@ final class PokemonViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var pokemonImageView: UIImageView!
     func didSet() {
-            pokemonImageView.contentMode = .scaleAspectFit
-            pokemonImageView.clipsToBounds = true
-            pokemonImageView.layer.cornerRadius = pokemonImageView.frame.height / 2
-            pokemonImageView.backgroundColor = .white
-        }
-        
-        
-        // MARK: - Public methods
-        
-        func configure(with pokemon: Pokemon) {
-            nameLabel.text = pokemon.name
+        pokemonImageView.contentMode = .scaleAspectFit
+        pokemonImageView.clipsToBounds = true
+        pokemonImageView.layer.cornerRadius = pokemonImageView.frame.height / 2
+        pokemonImageView.backgroundColor = .white
+    }
+    
+    
+    // MARK: - Public methods
+    func configure(with pokemon: Pokemon) {
+        nameLabel.text = pokemon.name
+        NetworkManager.shared.fetch(dataType: Character.self, url: pokemon.url) { character in
+            let imageURL = URL(string: character.sprites.other.home.frontDefault)
+            self.pokemonImageView.kf.setImage(with: imageURL)
             
-            NetworkManager.shared.fetch(dataType: Character.self, url: pokemon.url) { character in
-                NetworkManager.shared.fetchImage(from: character.sprites.other.home.frontDefault) { [weak self] result in
-                    switch result {
-                    case .success(let imageData):
-                        self?.pokemonImageView.image = UIImage(data: imageData)
-                    case .failure(let error):
-                        print(error)
-                    }
-                    
-                }
-            }
         }
     }
-
+}
+        
+            /* Метод без кинг фишера
+             func configure(with pokemon: Pokemon) {
+             nameLabel.text = pokemon.name
+             
+             NetworkManager.shared.fetch(dataType: Character.self, url: pokemon.url) { character in
+             NetworkManager.shared.fetchImage(from: character.sprites.other.home.frontDefault) { [weak self] result in
+             switch result {
+             case .success(let imageData):
+             self?.pokemonImageView.image = UIImage(data: imageData)
+             case .failure(let error):
+             print(error)
+             }
+             
+             }
+             }
+             }
+             */
 
